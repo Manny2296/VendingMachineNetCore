@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "22902e3c-5bbe-43bf-b433-e48b5d097281",
+		"name": "TMP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetVendingMachine",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Get Vending Machine"
+			},
+			"response": []
+		},
+		{
+			"name": "GetCreditMachine",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Get Vending Machine"
+			},
+			"response": []
+		},
+		{
+			"name": "id/add_credit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"credit\": 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44343/1/add-credit",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"1",
+						"add-credit"
+					]
+				},
+				"description": "Add credit to VendMachine\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Buy Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"credit\": 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44343/1/add-credit",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44343",
+					"path": [
+						"1",
+						"add-credit"
+					]
+				},
+				"description": "Add credit to VendMachine\r\n"
+			},
+			"response": []
+		}
+	]
+}
