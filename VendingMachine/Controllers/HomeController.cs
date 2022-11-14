@@ -38,14 +38,16 @@ namespace VendingMachineApplication.Controllers
             return Ok(vm);
         }
         [HttpGet]
-        [Route("{id}/credit")]
+        [Route("{id}/credit-coins")]
         public ObjectResult GetVendingMachineCredit(int id)
         {
-            var vm = _vendingMachineHandler.Get(id);
-            if (vm == null)
-                return NotFound("Vending Machine not found");
+            var coins = _vendingMachineBusiness.GetCreditbyMachineId(id);
+            if (coins == null)
+               return NotFound("Something Goes Wrong please try again");
 
-            return Ok(vm);
+            _logger.LogInformation($"Sum of Coins  array {coins.Sum()} ");
+
+            return Ok(coins);   
         }
 
         [HttpPost]

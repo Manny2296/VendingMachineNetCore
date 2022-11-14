@@ -13,6 +13,6 @@ namespace VendingMachineApplication.Business
         public VendingMachine AddCreditwithCoins(int id, double[] coins);
         Product BuyProduct(int id, int productId);
 
-        public double[] getCreditbyMachineId(int id);
+        public double[] GetCreditbyMachineId(int id);
      }
 }

@@ -138,5 +138,30 @@ namespace VendingMachineTest
             Assert.Equal(51.56, vm.Credits);
 
         }
+
+
+        [Fact]
+        public void shouldGetArrayofCoinsBasedOnMachineCredit()
+        {
+            var vm = new VendingMachine
+            {
+                Id = 1,
+                Credits = 4.68
+            };
+            double[] coins = { 0.01, 0.05, 1.10, 2.25, 0.50, 1.00 };
+            var handlerMock = new Mock<IVendingMachineHandler>();
+            handlerMock.Setup(vmh => vmh.Get(1)).Returns(vm);
+            handlerMock.Setup(vmh => vmh.Update(vm)).Returns(vm);
+
+            var vendingMachineBusiness = new VendingMachineBusiness(handlerMock.Object);
+            double[] vs = vendingMachineBusiness.GetCreditbyMachineId(vm.Id);
+            double sum =0;
+            for (int i = 0; i < vs.Length; i++)
+            {
+                sum += vs[i];
+            }
+            //Sum of Coins Array should match with Machine Credits 
+            Assert.Equal(vm.Credits, Math.Round(sum, 2));
+        }
     }
 }
