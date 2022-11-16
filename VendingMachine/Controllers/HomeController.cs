@@ -42,12 +42,13 @@ namespace VendingMachineApplication.Controllers
         public ObjectResult GetVendingMachineCredit(int id)
         {
             var coins = _vendingMachineBusiness.GetCreditbyMachineId(id);
+
             if (coins == null)
                return NotFound("Something Goes Wrong please try again");
 
             _logger.LogInformation($"Sum of Coins  array {coins.Sum()} ");
 
-            return Ok(coins);   
+            return Ok(new { coins = coins });   
         }
 
         [HttpPost]
